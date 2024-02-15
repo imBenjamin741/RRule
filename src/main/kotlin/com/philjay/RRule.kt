@@ -1,9 +1,13 @@
 package com.philjay
 
 import java.time.Instant
+import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
+import java.time.temporal.TemporalAccessor
+import java.time.temporal.TemporalQuery
+
 
 open class RRule() {
 
@@ -119,7 +123,14 @@ open class RRule() {
                 count = components[i].toIntOrNull() ?: 1
             } else if (component == "UNTIL") {
                 i += 1
-                until = LocalDateTime.parse(components[i], dateFormatter).toInstant(ZoneOffset.UTC)
+                val temporalAccessor = dateFormatter.parseBest(component,
+                    TemporalQuery<Any> { temporal: TemporalAccessor? -> LocalDateTime.from(temporal) },
+                    TemporalQuery<Any> { temporal: TemporalAccessor? -> LocalDate.from(temporal) })
+                if (temporalAccessor is LocalDateTime) {
+                    until = temporalAccessor.toInstant(ZoneOffset.UTC)
+                } else {
+                    until = (temporalAccessor as LocalDate).atStartOfDay().toInstant(ZoneOffset.UTC)
+                }
             }
 
             if (component == "WKST") {
@@ -209,6 +220,6 @@ open class RRule() {
     }
 
     companion object {
-        private val dateFormatter = DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss'Z'").withZone(ZoneOffset.UTC)
+        private val dateFormatter = DateTimeFormatter.ofPattern("yyyyMMdd['T'HHmmss'Z']").withZone(ZoneOffset.UTC)
     }
 }
