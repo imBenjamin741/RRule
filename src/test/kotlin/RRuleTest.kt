@@ -1,5 +1,5 @@
-import com.philjay.RRule
-import com.philjay.Weekday
+import com.imBenjamin741.RRule
+import com.imBenjamin741.Weekday
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
 import org.junit.Test

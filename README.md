@@ -1,4 +1,4 @@
-[![Release](https://img.shields.io/github/release/PhilJay/RRule.svg?style=flat)](https://jitpack.io/#PhilJay/RRule)
+[![Release](https://img.shields.io/github/release/imBenjamin741/RRule.svg?style=flat)](https://jitpack.io/#imBenjamin741/RRule)
 
 
 # RRule
@@ -15,7 +15,7 @@ allprojects {
 }
 
 dependencies {
-    implementation 'com.github.PhilJay:RRule:1.0.3'
+    implementation 'com.github.imBenjamin741:RRule:1.0.4'
 }
 ```
 
@@ -30,9 +30,9 @@ Or add the following to your **pom.xml**:
 </repositories>
 
 <dependency>
-    <groupId>com.github.PhilJay</groupId>
+    <groupId>com.github.imBenjamin741</groupId>
     <artifactId>RRule</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
 </dependency>
 ```
 

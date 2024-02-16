@@ -1,4 +1,4 @@
-package com.philjay
+package com.imBenjamin741
 
 import java.time.Instant
 import java.time.LocalDate
@@ -123,7 +123,7 @@ open class RRule() {
                 count = components[i].toIntOrNull() ?: 1
             } else if (component == "UNTIL") {
                 i += 1
-                val temporalAccessor = dateFormatter.parseBest(component,
+                val temporalAccessor = dateFormatter.parseBest(components[i],
                     TemporalQuery<Any> { temporal: TemporalAccessor? -> LocalDateTime.from(temporal) },
                     TemporalQuery<Any> { temporal: TemporalAccessor? -> LocalDate.from(temporal) })
                 if (temporalAccessor is LocalDateTime) {

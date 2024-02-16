@@ -1,4 +1,4 @@
-package com.philjay
+package com.imBenjamin741
 
 enum class Weekday(val initials: String) {
     Monday("MO"), Tuesday("TU"), Wednesday("WE"), Thursday("TH"), Friday("FR"), Saturday("SA"), Sunday("SU");
